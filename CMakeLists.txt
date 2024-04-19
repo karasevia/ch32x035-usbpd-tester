@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain-ch32v00x.cmake)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain-ch32x035.cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(firmware)
@@ -8,6 +8,8 @@ add_executable(${TARGET_ELF} src/main.c)
 enable_language(C CXX ASM)
 target_compile_features(${TARGET_ELF} PRIVATE cxx_std_17)
 
+add_subdirectory(rtthread)
+add_subdirectory(drivers)
 add_subdirectory(wch)
 
 target_link_libraries(${TARGET_ELF} m)
