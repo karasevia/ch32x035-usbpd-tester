@@ -18,7 +18,7 @@
 #define __BOARD_H__
 
 #include "ch32x035.h"
-#define ch32x035_PIN_NUMBERS   28
+#define ch32x035_PIN_NUMBERS   20
 /* board configuration */
 #define SRAM_SIZE  20
 #define SRAM_END (0x20000000 + SRAM_SIZE * 1024)

@@ -54,6 +54,33 @@ struct pin_index
 
 static const struct pin_index pins[] =
 {
+#if (ch32x035_PIN_NUMBERS == 20)
+    __CH32_PIN_DEFAULT,
+    __CH32_PIN_DEFAULT,
+    __CH32_PIN(2, A, 0),
+    __CH32_PIN(3, A, 1),
+    __CH32_PIN(4, A, 2),
+    __CH32_PIN(5, A, 3),
+    __CH32_PIN(6, A, 4),
+    __CH32_PIN(7, A, 5),
+    __CH32_PIN(8, A, 6),
+    __CH32_PIN(9, A, 7),
+    __CH32_PIN(10, B, 0),
+#if PB1_5==PB1
+    __CH32_PIN(11, B, 1),
+#elif PB1_5==PB5
+    __CH32_PIN(11, B, 5),
+#endif
+    __CH32_PIN(12, B, 3),
+    __CH32_PIN(13, B, 11),
+    __CH32_PIN(14, C, 18),
+    __CH32_PIN(15, B, 12),
+    __CH32_PIN(16, C, 19),
+    __CH32_PIN(17, C, 16),
+    __CH32_PIN(18, C, 17),
+    __CH32_PIN(19, C, 14),
+    __CH32_PIN(20, C, 15),
+#endif
 #if (ch32x035_PIN_NUMBERS == 28)
     __CH32_PIN_DEFAULT,
     __CH32_PIN(1, C, 15),

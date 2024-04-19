@@ -23,7 +23,7 @@
 /* Global define */
 
 /* LED0 is driven by the pin driver interface of rt  */
-#define LED0_PIN  5   //PA0
+#define LED0_PIN  9   //PA7
 
 /* Global Variable */
 /*CH32X035F8 PB1 and PB5 are the same physical pin
@@ -65,9 +65,9 @@ int main(void)
 	while(1)
 	{
 	    GPIO_SetBits(GPIOA,GPIO_Pin_0);
-	    rt_thread_mdelay(200);
+	    rt_thread_mdelay(500);
 	    GPIO_ResetBits(GPIOA,GPIO_Pin_0);
-	    rt_thread_mdelay(200);
+	    rt_thread_mdelay(500);
 	}
 }
 
@@ -77,16 +77,16 @@ int led(void)
     rt_uint8_t count;
 
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
-    printf("led_SP:%08x\r\n",__get_SP());
+    rt_kprintf("led_SP:%08x\r\n",__get_SP());
     for(count = 0 ; count < 10 ;count++)
     {
         rt_pin_write(LED0_PIN, PIN_LOW);
         rt_kprintf("led on, count : %d\r\n", count);
-        rt_thread_mdelay(200);
+        rt_thread_mdelay(100);
 
         rt_pin_write(LED0_PIN, PIN_HIGH);
         rt_kprintf("led off\r\n");
-        rt_thread_mdelay(200);
+        rt_thread_mdelay(100);
     }
     return 0;
 }
