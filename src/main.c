@@ -14,6 +14,7 @@
 #include <rthw.h>
 #include "drivers/pin.h"
 #include "ch32x035_conf.h"
+#include "drv_usbpd.h"
 
 /* The printf pin is PA2 (UART2) */
 
@@ -62,12 +63,11 @@ int main(void)
     rt_kprintf(" www.wch.cn\r\n");
 	LED1_BLINK_INIT();
 	GPIO_ResetBits(GPIOA,GPIO_Pin_0);
+    rt_usbpd_hw_init();
 	while(1)
 	{
-	    GPIO_SetBits(GPIOA,GPIO_Pin_0);
-	    rt_thread_mdelay(500);
-	    GPIO_ResetBits(GPIOA,GPIO_Pin_0);
-	    rt_thread_mdelay(500);
+        rt_usbpd_process();
+        rt_thread_mdelay(1);
 	}
 }
 
@@ -91,3 +91,32 @@ int led(void)
     return 0;
 }
 MSH_CMD_EXPORT(led,  led sample by using I/O drivers);
+
+/* Test using the driver interface to operate the I/O port  */
+int usbpd(void)
+{
+    rt_uint8_t count;
+
+    rt_usbpd_hw_init();
+
+    while(1)
+    {
+        rt_usbpd_process();
+        //rt_thread_mdelay(1);
+    }
+
+    rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
+    rt_kprintf("led_SP:%08x\r\n",__get_SP());
+    for(count = 0 ; count < 10 ;count++)
+    {
+        rt_pin_write(LED0_PIN, PIN_LOW);
+        rt_kprintf("led on, count : %d\r\n", count);
+        rt_thread_mdelay(100);
+
+        rt_pin_write(LED0_PIN, PIN_HIGH);
+        rt_kprintf("led off\r\n");
+        rt_thread_mdelay(100);
+    }
+    return 0;
+}
+MSH_CMD_EXPORT(usbpd,  usb PD get 12V);

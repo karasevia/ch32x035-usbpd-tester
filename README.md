@@ -1,6 +1,6 @@
 ## This project completely based on @sadkotheguest's [ch32v307-cmake-vsc-noos-template](https://github.com/sadkotheguest/ch32v307-cmake-vsc-noos-template)
 
-# CH32X035 NoOS project template
+# CH32X035 RT-Thread project template
 
 This project provide a functional cmake/ninja project for ch32x035 MCU using standard RISC-V GCC toolchain with WCH OpenOCD support using wlinke (or wlink) debugger.
 

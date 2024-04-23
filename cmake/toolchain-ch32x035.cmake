@@ -2,7 +2,7 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR RISC-V)
 
 option(USE_WCH_TOOLCHAIN "Force the usage of WCH toolchain" TRUE)
-set(CROSSTOOL_PATH C:\\xPacks\\xpack-riscv-none-elf-gcc-13.2.0-2\\bin CACHE PATH "Cross toolchain root directory")
+set(CROSSTOOL_PATH C:\\xPacks\\riscv-embedded-gcc-12\\bin CACHE PATH "Cross toolchain root directory")
 
 function(find_toolchain)
   foreach(CROSS_PREFIX ${ARGV})

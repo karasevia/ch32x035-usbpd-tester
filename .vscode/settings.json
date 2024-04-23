@@ -4,8 +4,8 @@
     "cortex-debug.gdbPath.linux": "/opt/xpack-riscv-none-elf-gcc-12.2.0-1/bin/riscv-none-elf-gdb",
     "cortex-debug.objdumpPath.linux": "/opt/xpack-riscv-none-elf-gcc-12.2.0-1/bin/riscv-none-elf-objdump",
     "cortex-debug.openocdPath.windows": "C:\\MounRiver\\MounRiver_Studio\\toolchain\\OpenOCD\\bin\\openocd.exe", 
-    "cortex-debug.gdbPath.windows": "C:\\xPacks\\xpack-riscv-none-elf-gcc-13.2.0-2\\bin\\riscv-none-elf-gdb.exe",
-    "cortex-debug.objdumpPath.windows": "C:\\xPacks\\xpack-riscv-none-elf-gcc-13.2.0-2\\bin\\riscv-none-elf-objdump.exe",
+    "cortex-debug.gdbPath.windows": "C:\\xPacks\\riscv-embedded-gcc-12\\bin\\riscv-none-elf-gdb.exe",
+    "cortex-debug.objdumpPath.windows": "C:\\xPacks\\riscv-embedded-gcc-12\\bin\\riscv-none-elf-objdump.exe",
     "files.associations": {
         "ch32x035_conf.h": "c",
         "ch32x035_it.h": "c",
